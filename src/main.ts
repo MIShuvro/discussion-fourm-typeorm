@@ -12,8 +12,8 @@ async function setupSwagger(app, port: number) {
   let { SWAGGER_USERNAME, SWAGGER_PASSWORD } = process.env;
 
   const config = new DocumentBuilder()
-    .setTitle('Nest Boilerplate')
-    .setDescription('Nest Boilerplate API DOC')
+    .setTitle('Dicssion')
+    .setDescription('Dicssion Fourm API DOC')
     .setVersion('1.0')
     .addApiKey(
       { type: 'apiKey', name: 'Authorization', in: 'header', scheme: 'bearer', bearerFormat: 'Bearer' },

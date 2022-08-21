@@ -2,29 +2,26 @@ import { AppBaseEntity } from "src/common/database/entity/base.entity";
 import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 
-@Entity({
-    name: 'threads'
-})
-export class Thread extends AppBaseEntity{
+@Entity()
+export class Thread extends AppBaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number
 
     @Column({
-        type: "varchar",
-        nullable: false
+        type: "varchar"
     })
     title: string
 
     @Column({
         type: "varchar",
-        nullable: false
+        unique: true
     })
     slug: string;
 
     @BeforeInsert()
-    async beforeInsert(){
-        this.slug = this.title.toLowerCase().split(" ").join("-")
+    beforeInsert() {
+        //  this.slug = this.title.toLowerCase().split(" ").join("-")
     }
 
 }

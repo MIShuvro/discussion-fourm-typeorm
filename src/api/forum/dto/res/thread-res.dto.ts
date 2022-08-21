@@ -1,12 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Expose, Transform } from 'class-transformer';
+import { Exclude, Expose, Transform } from 'class-transformer';
+import { PaginateResDto } from 'src/common/dto/res/paginate-res.dto';
 
 
 export class ThreadResDto {
 
   @ApiProperty()
   @Expose()
-  id: string;
+  id: number;
 
   @ApiProperty()
   @Expose()
@@ -32,4 +33,7 @@ export class ThreadLists {
   @Transform(value => value.obj.threads)
   threads: ThreadResDto[]
 
+  @ApiProperty()
+  @Expose()
+  paginate: PaginateResDto
 }

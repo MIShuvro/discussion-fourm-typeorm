@@ -38,35 +38,35 @@ export class PostReqDto {
   // @IsNumber()
   // @IsOptional()
   // vote_count: number;
-  //
+  
   // @ApiProperty()
   // @IsNumber()
   // @IsOptional()
   // views_count: number;
-  //
+  
   // @ApiProperty()
   // @IsNumber()
   // @IsOptional()
   // up_vote_count: number;
-  //
+  
   // @ApiProperty()
   // @IsNumber()
   // @IsOptional()
   // down_vote_count: number;
 
-  @ApiProperty({type: User})
-  @IsNotEmpty()
-  user: User;
+  // @ApiProperty({type: User})
+  // @IsNotEmpty()
+  // user: User;
 
   @ApiProperty()
-  @IsString()
-  thread_id: string;
+  @IsNumber()
+  thread_id: number;
 
-  @ApiProperty({type: [String]})
-  @IsString({each: true})
-  // @ValidateNested()
-  @IsOptional()
-  tags_id: string[];
+  // @ApiProperty({type: [String]})
+  // @IsString({each: true})
+  // // @ValidateNested()
+  // @IsOptional()
+  // tags_id: string[];
 }
 
 

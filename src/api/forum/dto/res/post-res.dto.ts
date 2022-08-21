@@ -5,15 +5,15 @@ import { Expose, plainToInstance, Transform } from 'class-transformer';
 export class Thread {
   @ApiProperty()
   @Expose()
-  _id:       string;
+  _id: string;
 
   @ApiProperty()
   @Expose()
-  title:     string;
+  title: string;
 
   @ApiProperty()
   @Expose()
-  slug:      string;
+  slug: string;
 
   @ApiProperty()
   @Expose()
@@ -22,15 +22,15 @@ export class Thread {
 export class Tag {
   @ApiProperty()
   @Expose()
-  _id:       string;
+  _id: string;
 
   @ApiProperty()
   @Expose()
-  title:     string;
+  title: string;
 
   @ApiProperty()
   @Expose()
-  slug:      string;
+  slug: string;
 
   @ApiProperty()
   @Expose()
@@ -41,11 +41,11 @@ export class Tag {
 export class User {
   @ApiProperty()
   @Expose()
-  _id:         string;
+  _id: string;
 
   @ApiProperty()
   @Expose()
-  name:        string;
+  name: string;
 
   @ApiProperty()
   @Expose()
@@ -53,59 +53,63 @@ export class User {
 
   @ApiProperty()
   @Expose()
-  email:       string;
+  email: string;
 }
 
 export class PostResDto {
 
   @ApiProperty()
   @Expose()
-  _id: string;
+  id: number;
 
   @ApiProperty()
   @Expose()
-  title:           string;
+  title: string;
 
   @ApiProperty()
   @Expose()
-  is_anonymous:    boolean;
+  slug: string;
 
   @ApiProperty()
   @Expose()
-  vote_count:      number;
+  is_anonymous: boolean;
 
   @ApiProperty()
   @Expose()
-  views_count:     number;
+  vote_count: number;
 
   @ApiProperty()
   @Expose()
-  up_vote_count:   number;
+  views_count: number;
+
+  @ApiProperty()
+  @Expose()
+  up_vote_count: number;
 
   @ApiProperty()
   @Expose()
   down_vote_count: number;
 
-  @ApiProperty({type: User})
-  @Expose()
-  @Transform(value=> plainToInstance(User, value.obj.user, {excludeExtraneousValues: true, enableImplicitConversion: true}))
-  user:  User;
+  // @ApiProperty({type: User})
+  // @Expose()
+  // @Transform(value=> plainToInstance(User, value.obj.user, {excludeExtraneousValues: true, enableImplicitConversion: true}))
+  // user:  User;
 
-  @ApiProperty({type: Thread})
+  @ApiProperty({ type: Thread })
   @Expose()
-  @Transform(value=> plainToInstance(Thread, value.obj.thread, {excludeExtraneousValues: true, enableImplicitConversion: true}))
+  @Transform(value => plainToInstance(Thread, value.obj.thread, { excludeExtraneousValues: true, enableImplicitConversion: true }))
   thread: Thread;
 
-  @ApiProperty({type:[Tag]})
-  @Expose()
-  @Transform(value=> plainToInstance(Tag, value.obj.tags,{excludeExtraneousValues: true, enableImplicitConversion: true}))
-  tags: Tag[];
+  // @ApiProperty({type:[Tag]})
+  // @Expose()
+  // @Transform(value=> plainToInstance(Tag, value.obj.tags,{excludeExtraneousValues: true, enableImplicitConversion: true}))
+  // tags: Tag[];
 }
 
 
-export class PostListResDto{
-  @ApiProperty({type:[PostResDto]})
+export class PostListResDto {
+  @ApiProperty({ type: [PostResDto] })
   @Expose()
-  @Transform(value=> plainToInstance(PostResDto, value.obj.posts,{enableImplicitConversion: true, excludeExtraneousValues: true}))
+  @Transform(value => plainToInstance(PostResDto, value.obj.posts, { enableImplicitConversion: true, excludeExtraneousValues: true }))
   posts: PostResDto[]
 }
